@@ -1,0 +1,21 @@
+name: siq
+services:
+  database:
+    image: postgres:17.4
+    volumes:
+      - ./database/initdb.sql:/docker-entrypoint-initdb.d/1.sql
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_INITDB_ARGS: "--locale-provider=icu --icu-locale=pt-BR"
+      POSTGRESQL_LOGGING_COLLECTOR: "on"
+      POSTGRESQL_LOG_DIRECTORY: "/var/log/postgresql"
+      POSTGRESQL_LOG_FILENAME: "postgresql.log"
+      POSTGRESQL_LOG_STATEMENT: "all"
+      POSTGRESQL_LOG_DURATION: "on"
+      POSTGRESQL_LOG_MIN_DURATION_STATEMENT: "1000"
+    networks:
+      - siq
+networks:
+  siq:
+    driver: bridge
