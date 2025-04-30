@@ -1,13 +1,17 @@
 name: siq
 services:
   database:
-    image: postgres:17.4
+    build:
+      context: ./database
+      dockerfile: Dockerfile.dev
     volumes:
       - ./database/initdb.sql:/docker-entrypoint-initdb.d/1.sql
+      - ./database/data/postgresql.conf:/etc/postgresql/postgresql.conf
+      - ./database/data/logs:/var/log/postgresql
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_INITDB_ARGS: "--locale-provider=icu --icu-locale=pt-BR"
+      POSTGRES_INITDB_ARGS: "--lc-collate=pt_BR.UTF-8 --lc-monetary=pt_BR.UTF-8 --lc-numeric=pt_BR.UTF-8"
       POSTGRESQL_LOGGING_COLLECTOR: "on"
       POSTGRESQL_LOG_DIRECTORY: "/var/log/postgresql"
       POSTGRESQL_LOG_FILENAME: "postgresql.log"
