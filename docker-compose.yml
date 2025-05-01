@@ -18,6 +18,8 @@ services:
       POSTGRESQL_LOG_STATEMENT: "all"
       POSTGRESQL_LOG_DURATION: "on"
       POSTGRESQL_LOG_MIN_DURATION_STATEMENT: "1000"
+    ports:
+      - 5432:5432
     networks:
       - siq
 networks:
