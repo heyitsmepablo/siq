@@ -33,8 +33,7 @@
                     "package.json",
                     "package-lock.json",
                     "CHANGELOG.md"
-                ],
-                "message": "chore(release): ${nextRelease.version} [skip ci]\n\n[Compare aqui ${lastRelease.gitTag} com ${nextRelease.gitTag}](https://github.com/heyitsmepablo/siq/compare/${lastRelease.gitTag}...${nextRelease.gitTag})\n\n${nextRelease.notes}"
+                ]
             }
         ]
     ]
