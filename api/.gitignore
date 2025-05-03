@@ -1,5 +1,5 @@
 # prisma
-generated/prisma/
+src/prisma/generated/
 
 # compiled output
 /dist
