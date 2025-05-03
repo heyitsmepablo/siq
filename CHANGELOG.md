@@ -2,6 +2,13 @@
 
 Todas as mudanças notáveis neste projeto serão documentadas neste arquivo. Consulte [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) para diretrizes de commits.
 
+# [1.0.0-alpha.4](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2025-05-03)
+
+
+### Bug Fixes
+
+* testando o que acontece ao versionar sem message ([338995f](https://github.com/heyitsmepablo/siq/commit/338995f6258e53336ae0c6433b140b6a6c341c0e))
+
 # [1.0.0-alpha.3](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2025-05-03)
 
 
