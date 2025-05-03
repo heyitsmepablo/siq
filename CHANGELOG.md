@@ -2,6 +2,13 @@
 
 Todas as mudanças notáveis neste projeto serão documentadas neste arquivo. Consulte [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) para diretrizes de commits.
 
+# [1.0.0-alpha.3](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2025-05-03)
+
+
+### Bug Fixes
+
+* ajustando release note na tag ([848353c](https://github.com/heyitsmepablo/siq/commit/848353c3abb4282d79a382eb7784e31fe43b76e2))
+
 # [1.0.0-alpha.2](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2025-05-03)
 
 
