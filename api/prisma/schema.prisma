@@ -84,11 +84,14 @@ model subsections {
 }
 
 model users {
-  id        Int       @id @default(autoincrement())
-  username  String
-  password  String
-  createdAt DateTime? @default(now()) @db.Timestamp(6)
-  updatedAt DateTime? @db.Timestamp(6)
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  username        String    @unique
+  password        String
+  accessToken     String?
+  tokenExpiration DateTime? @db.Timestamp(6)
+  lastLogin       DateTime? @db.Date
+  createdAt       DateTime? @default(now()) @db.Timestamp(6)
+  updatedAt       DateTime? @db.Timestamp(6)
 }
 
 enum requirement_status {

@@ -1,7 +1,7 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { UserCreateDto } from './dtos/users.dto';
-import { PrismaClientKnownRequestError } from './prisma/generated/client/runtime/library';
 import PrismaSingleton from './singletons/prisma-singleton/prisma-singleton';
+import { PrismaClientKnownRequestError } from '../prisma/generated/client/runtime/library';
 
 @Injectable()
 export class AppService {

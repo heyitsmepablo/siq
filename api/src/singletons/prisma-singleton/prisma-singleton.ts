@@ -1,4 +1,4 @@
-import { PrismaClient } from '../../prisma/generated/client';
+import { PrismaClient } from '../../../prisma/generated/client';
 
 export default class PrismaSingleton {
   static #instance: PrismaSingleton;
