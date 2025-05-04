@@ -1,5 +1,5 @@
 import { DeepMockProxy, mockDeep, mockReset } from 'jest-mock-extended';
-import { PrismaClient } from '../prisma/generated/client';
+import { PrismaClient } from '../../prisma/generated/client';
 import PrismaSingleton from '../singletons/prisma-singleton/prisma-singleton';
 
 jest.mock('../singletons/prisma-singleton/prisma-singleton', () => {
