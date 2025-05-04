@@ -2,6 +2,19 @@
 
 Todas as mudanças notáveis neste projeto serão documentadas neste arquivo. Consulte [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) para diretrizes de commits.
 
+# [1.0.0-alpha.5](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2025-05-04)
+
+
+### Bug Fixes
+
+* **database:** username é unico ([efd0a93](https://github.com/heyitsmepablo/siq/commit/efd0a93f2a0d009babf8572b908bc099a741771f))
+
+
+### Features
+
+* **api:**  login ([538ad71](https://github.com/heyitsmepablo/siq/commit/538ad71fdea21be70d8ec6977e8432640f414d38))
+* **database:** novas colunas em users, agora id é gerado em uuid ([23a0bcf](https://github.com/heyitsmepablo/siq/commit/23a0bcf4d881b854fbe77bf643742d160586f751))
+
 # [1.0.0-alpha.4](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2025-05-03)
 
 
