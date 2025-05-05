@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   Injectable,
   InternalServerErrorException,
@@ -6,7 +7,7 @@ import {
 import { UsersService } from '../users/users.service';
 import { PrismaClientKnownRequestError } from '../../../prisma/generated/client/runtime/library';
 import { JwtService } from '@nestjs/jwt';
-import { LoginDto } from 'src/dtos/auth.dto';
+import { LoginDto } from '../../dtos/auth.dto';
 
 @Injectable()
 export class AuthService {

@@ -6,6 +6,9 @@ import { AuthService } from './services/auth/auth.service';
 import { UsersService } from './services/users/users.service';
 import { JwtModule } from '@nestjs/jwt';
 import { env } from 'process';
+import { InstitutesService } from './services/institutes/institutes.service';
+import { InstituteController } from './controllers/institute/institute.controller';
+
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, envFilePath: '../.env' }),
@@ -15,7 +18,7 @@ import { env } from 'process';
       signOptions: { expiresIn: env.JWT_EXPIRES_IN },
     }),
   ],
-  controllers: [AppController],
-  providers: [AppService, AuthService, UsersService],
+  controllers: [AppController, InstituteController],
+  providers: [AppService, AuthService, UsersService, InstitutesService],
 })
 export class AppModule {}
