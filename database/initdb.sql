@@ -73,7 +73,7 @@ CREATE TABLE "users" (
   "id" UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   "username" TEXT NOT NULL UNIQUE,
   "password" TEXT NOT NULL,
-  "accessToken" TEXT,
+  "accessToken" TEXT UNIQUE,
   "tokenExpiration" TIMESTAMP,
   "lastLogin" TIMESTAMP,
   "createdAt" timestamp DEFAULT CURRENT_TIMESTAMP,

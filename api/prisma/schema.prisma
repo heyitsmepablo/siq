@@ -87,9 +87,9 @@ model users {
   id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   username        String    @unique
   password        String
-  accessToken     String?
+  accessToken     String?   @unique
   tokenExpiration DateTime? @db.Timestamp(6)
-  lastLogin       DateTime? @db.Date
+  lastLogin       DateTime? @db.Timestamp(6)
   createdAt       DateTime? @default(now()) @db.Timestamp(6)
   updatedAt       DateTime? @db.Timestamp(6)
 }
