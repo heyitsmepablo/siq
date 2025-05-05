@@ -2,6 +2,19 @@
 
 Todas as mudanças notáveis neste projeto serão documentadas neste arquivo. Consulte [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) para diretrizes de commits.
 
+# [1.0.0-alpha.6](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2025-05-05)
+
+
+### Bug Fixes
+
+* **database:** accessToken não é unico em users ([53b9c54](https://github.com/heyitsmepablo/siq/commit/53b9c5450699a28473dd9f5472c8f3e1bf6c69c2))
+
+
+### Features
+
+* **api:** criar instituto ([3fc089e](https://github.com/heyitsmepablo/siq/commit/3fc089e1b49948201afffb78efa71a106ff6003f))
+* **api:** guard de atenticação ([e514247](https://github.com/heyitsmepablo/siq/commit/e51424714b220c1bde55d2095f7b9a67bc7ef25d))
+
 # [1.0.0-alpha.5](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2025-05-04)
 
 
