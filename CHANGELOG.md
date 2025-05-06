@@ -2,6 +2,13 @@
 
 Todas as mudanças notáveis neste projeto serão documentadas neste arquivo. Consulte [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) para diretrizes de commits.
 
+# [1.0.0-alpha.7](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2025-05-06)
+
+
+### Features
+
+* atualizar e deletar instituto ([17dde36](https://github.com/heyitsmepablo/siq/commit/17dde36c540613779695a08a956b6981e007e975))
+
 # [1.0.0-alpha.6](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2025-05-05)
 
 
