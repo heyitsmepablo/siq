@@ -22,6 +22,8 @@ services:
       - 5432:5432
     networks:
       - siq
+    mem_limit: "512mb"
+    cpus: "0.50"
 networks:
   siq:
     driver: bridge

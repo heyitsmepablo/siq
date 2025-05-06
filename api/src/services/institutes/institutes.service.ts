@@ -1,6 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import PrismaSingleton from '../../singletons/prisma-singleton/prisma-singleton';
-import { InstituteCreateDto } from '../../dtos/institutes.dto';
+import {
+  InstituteCreateDto,
+  InstituteUpdateDto,
+} from '../../dtos/institutes.dto';
 import { PrismaErrorHandler } from 'src/handlers/prisma-error-handler';
 
 @Injectable()
@@ -18,6 +21,21 @@ export class InstitutesService {
   async findAll() {
     try {
       return await this.#db.institutes.findMany();
+    } catch (error) {
+      new PrismaErrorHandler(error).handle();
+    }
+  }
+  async findOne(id: number) {
+    try {
+      return await this.#db.institutes.findUnique({ where: { id } });
+    } catch (error) {
+      new PrismaErrorHandler(error).handle();
+    }
+  }
+  async update(id: number, data: InstituteUpdateDto) {
+    try {
+      await this.#db.institutes.update({ where: { id }, data: data });
+      return { message: 'success' };
     } catch (error) {
       new PrismaErrorHandler(error).handle();
     }

@@ -5,12 +5,12 @@ import { InstitutesService } from 'src/services/institutes/institutes.service';
 @Controller('institute')
 export class InstituteController {
   constructor(private readonly institutesService: InstitutesService) {}
-  @Post()
+  @Post('new')
   async create(@Body() data: InstituteCreateDto) {
     await this.institutesService.create(data);
     return { message: 'success' };
   }
-  @Get()
+  @Get('all')
   async findAll() {
     return await this.institutesService.findAll();
   }

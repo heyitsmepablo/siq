@@ -3,6 +3,7 @@ import { InstitutesService } from './institutes.service';
 import 'jest-extended';
 import { prismaMock } from 'src/__mock__/prisma-singleton';
 import { InstituteCreateDto } from 'src/dtos/institutes.dto';
+import { Prisma } from 'prisma/generated/client';
 
 describe('InstitutesService', () => {
   let service: InstitutesService;
@@ -53,5 +54,25 @@ describe('InstitutesService', () => {
       prismaMock.institutes.findMany.mockRejectedValue(expectResponse);
       await expect(service.findAll()).rejects.toEqual(expectResponse);
     });
+  });
+
+  describe('findOne', () => {
+    it('Deve resolver com payload no corpo', async () => {
+      const expectedResponse = {
+        message: 'success',
+      };
+      prismaMock.institutes.update.mockResolvedValue({
+        id: 1,
+        name: 'teste',
+        createdAt: null,
+        updatedAt: null,
+      });
+      await expect(service.findOne(1)).resolves.toEqual(expectedResponse);
+    });
+  });
+  it('Deve rejeitar jogando o erro na resposta', async () => {
+    const expectedResponse = new Error('Erro generico');
+    prismaMock.institutes.update.mockRejectedValue(expectedResponse);
+    await expect(service.findOne(1)).rejects.toEqual(expectedResponse);
   });
 });
