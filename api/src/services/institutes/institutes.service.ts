@@ -40,4 +40,12 @@ export class InstitutesService {
       new PrismaErrorHandler(error).handle();
     }
   }
+  async delete(id: number) {
+    try {
+      await this.#db.institutes.delete({ where: { id } });
+      return { message: 'success' };
+    } catch (error) {
+      new PrismaErrorHandler(error).handle();
+    }
+  }
 }
