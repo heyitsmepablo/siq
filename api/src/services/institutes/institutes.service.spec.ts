@@ -19,17 +19,18 @@ describe('InstitutesService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+  const prismaInstitutePayload: Prisma.institutesGetPayload<true> = {
+    id: 1,
+    name: 'teste',
+    createdAt: null,
+    updatedAt: null,
+  };
   describe('create', () => {
     it('Deve resolver com mensagem de sucesso', async () => {
       const requestPayload: InstituteCreateDto = { name: 'teste' };
       const expectResponse = { message: 'success' };
 
-      prismaMock.institutes.create.mockResolvedValue({
-        id: 1,
-        name: 'teste',
-        createdAt: null,
-        updatedAt: null,
-      });
+      prismaMock.institutes.create.mockResolvedValue(prismaInstitutePayload);
 
       await expect(service.create(requestPayload)).resolves.toEqual(
         expectResponse,
@@ -38,15 +39,10 @@ describe('InstitutesService', () => {
   });
   describe('findAll', () => {
     it('Deve resolver com o resultado no payload', async () => {
-      const expectedResponse = [
-        {
-          id: 1,
-          name: 'teste',
-          createdAt: null,
-          updatedAt: null,
-        },
-      ];
-      prismaMock.institutes.findMany.mockResolvedValue(expectedResponse);
+      const expectedResponse = [prismaInstitutePayload];
+      prismaMock.institutes.findMany.mockResolvedValue([
+        prismaInstitutePayload,
+      ]);
       await expect(service.findAll()).resolves.toEqual(expectedResponse);
     });
     it('Deve rejeitar jogando o erro', async () => {
@@ -58,13 +54,10 @@ describe('InstitutesService', () => {
 
   describe('findOne', () => {
     it('Deve resolver com payload no corpo', async () => {
-      const expectedResponse = {
-        id: 1,
-        name: 'teste',
-        createdAt: null,
-        updatedAt: null,
-      };
-      prismaMock.institutes.findUnique.mockResolvedValue(expectedResponse);
+      const expectedResponse = prismaInstitutePayload;
+      prismaMock.institutes.findUnique.mockResolvedValue(
+        prismaInstitutePayload,
+      );
       await expect(service.findOne(1)).resolves.toEqual(expectedResponse);
     });
     it('Deve rejeitar jogando o erro na resposta', async () => {
@@ -77,42 +70,34 @@ describe('InstitutesService', () => {
   describe('update', () => {
     it('Deve resolver com payload no corpo', async () => {
       const expectedResponse = { message: 'success' };
-      const payloadRequest = {
-        id: 1,
-        name: 'teste',
-        createdAt: null,
-        updatedAt: null,
-      };
+      const payloadRequest = prismaInstitutePayload;
       prismaMock.institutes.update.mockResolvedValue(payloadRequest);
-      await expect(service.update(1, payloadRequest)).resolves.toEqual(
+      await expect(service.updateOne(1, payloadRequest)).resolves.toEqual(
         expectedResponse,
       );
     });
     it('Deve rejeitar jogando o erro na resposta', async () => {
       const expectedResponse = new Error('Erro generico');
       prismaMock.institutes.update.mockRejectedValue(expectedResponse);
-      await expect(service.update(1, {})).rejects.toEqual(expectedResponse);
+      await expect(service.updateOne(1, {})).rejects.toEqual(expectedResponse);
     });
   });
   describe('delete', () => {
     it('Deve resolver com payload no corpo', async () => {
       const expectedResponse = { message: 'success' };
       const payloadRequest = 1;
-      const payloadPrismaResponse = {
-        id: 1,
-        name: 'teste',
-        createdAt: null,
-        updatedAt: null,
-      };
-      prismaMock.institutes.update.mockResolvedValue(payloadPrismaResponse);
+      prismaMock.institutes.update.mockResolvedValue(prismaInstitutePayload);
       await expect(service.delete(payloadRequest)).resolves.toEqual(
         expectedResponse,
       );
     });
     it('Deve rejeitar jogando o erro na resposta', async () => {
       const expectedResponse = new Error('Erro generico');
-      prismaMock.institutes.update.mockRejectedValue(expectedResponse);
-      await expect(service.update(1, {})).rejects.toEqual(expectedResponse);
+      const payloadRequest = 1;
+      prismaMock.institutes.delete.mockRejectedValue(expectedResponse);
+      await expect(service.delete(payloadRequest)).rejects.toEqual(
+        expectedResponse,
+      );
     });
   });
 });

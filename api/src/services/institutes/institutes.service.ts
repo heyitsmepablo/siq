@@ -32,7 +32,7 @@ export class InstitutesService {
       new PrismaErrorHandler(error).handle();
     }
   }
-  async update(id: number, data: InstituteUpdateDto) {
+  async updateOne(id: number, data: InstituteUpdateDto) {
     try {
       await this.#db.institutes.update({ where: { id }, data: data });
       return { message: 'success' };
