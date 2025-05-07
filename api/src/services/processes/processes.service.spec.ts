@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { ProcessesService } from './processes.service';
 import { prismaMock } from 'src/__mock__/prisma-singleton';
 import { Prisma } from 'prisma/generated/client';
-import { ProcesseCreateDto } from 'src/dtos/processes.dto';
+import { ProcessCreateDto } from 'src/dtos/processes.dto';
 
 describe('ProcessesService', () => {
   let service: ProcessesService;
@@ -27,7 +27,7 @@ describe('ProcessesService', () => {
   };
   describe('create', () => {
     it('Deve resolver com mensagem de sucesso', async () => {
-      const requestPayload: ProcesseCreateDto = {
+      const requestPayload: ProcessCreateDto = {
         name: 'teste',
         type: 'testes',
       };

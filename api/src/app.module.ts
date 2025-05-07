@@ -10,6 +10,7 @@ import { InstitutesService } from './services/institutes/institutes.service';
 import { InstituteController } from './controllers/institute/institute.controller';
 import { AuthController } from './controllers/auth/auth.controller';
 import { ProcessesService } from './services/processes/processes.service';
+import { ProcessController } from './controllers/process/process.controller';
 
 @Module({
   imports: [
@@ -20,7 +21,18 @@ import { ProcessesService } from './services/processes/processes.service';
       signOptions: { expiresIn: env.JWT_EXPIRES_IN },
     }),
   ],
-  controllers: [AppController, InstituteController, AuthController],
-  providers: [AppService, AuthService, UsersService, InstitutesService, ProcessesService],
+  controllers: [
+    AppController,
+    InstituteController,
+    AuthController,
+    ProcessController,
+  ],
+  providers: [
+    AppService,
+    AuthService,
+    UsersService,
+    InstitutesService,
+    ProcessesService,
+  ],
 })
 export class AppModule {}
