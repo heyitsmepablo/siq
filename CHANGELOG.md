@@ -2,6 +2,13 @@
 
 Todas as mudanças notáveis neste projeto serão documentadas neste arquivo. Consulte [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) para diretrizes de commits.
 
+# [1.0.0-alpha.9](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.8...v1.0.0-alpha.9) (2025-05-07)
+
+
+### Bug Fixes
+
+* findOne não  reconhecendo o paramentro ([32fe786](https://github.com/heyitsmepablo/siq/commit/32fe786f2c70af0ffe7222c3d7ae959f7eb929a9))
+
 # [1.0.0-alpha.8](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2025-05-07)
 
 
