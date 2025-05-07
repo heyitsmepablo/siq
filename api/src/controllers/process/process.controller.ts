@@ -23,18 +23,18 @@ export class ProcessController {
     return await this.processesService.findAll();
   }
   @Get(':id')
-  async findOne(@Param(':id', new ParseIntPipe()) id: number) {
+  async findOne(@Param('id', new ParseIntPipe()) id: number) {
     return await this.processesService.findOne(id);
   }
   @Patch(':id')
   async updateOne(
-    @Param(':id', new ParseIntPipe()) id: number,
+    @Param('id', new ParseIntPipe()) id: number,
     @Body() payload: ProcessUpdateDto,
   ) {
     return await this.processesService.updateOne(id, payload);
   }
   @Delete(':id')
-  async delete(@Param(':id', new ParseIntPipe()) id: number) {
+  async delete(@Param('id', new ParseIntPipe()) id: number) {
     return await this.processesService.delete(id);
   }
 }

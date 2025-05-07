@@ -1,10 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProcessController } from './process.controller';
 import { Prisma } from 'prisma/generated/client';
-import { prismaMock } from 'src/__mock__/prisma-singleton';
 import { ProcessesService } from 'src/services/processes/processes.service';
 import { processesServiceMock } from 'src/__mock__/services/processes.service';
-import prisma from 'src/database/prisma-client';
 
 describe('ProcessController', () => {
   let controller: ProcessController;
