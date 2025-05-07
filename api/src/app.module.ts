@@ -9,6 +9,7 @@ import { env } from 'process';
 import { InstitutesService } from './services/institutes/institutes.service';
 import { InstituteController } from './controllers/institute/institute.controller';
 import { AuthController } from './controllers/auth/auth.controller';
+import { ProcessesService } from './services/processes/processes.service';
 
 @Module({
   imports: [
@@ -20,6 +21,6 @@ import { AuthController } from './controllers/auth/auth.controller';
     }),
   ],
   controllers: [AppController, InstituteController, AuthController],
-  providers: [AppService, AuthService, UsersService, InstitutesService],
+  providers: [AppService, AuthService, UsersService, InstitutesService, ProcessesService],
 })
 export class AppModule {}
