@@ -2,6 +2,13 @@
 
 Todas as mudanças notáveis neste projeto serão documentadas neste arquivo. Consulte [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) para diretrizes de commits.
 
+# [1.0.0-alpha.8](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2025-05-07)
+
+
+### Features
+
+* **api:** implementado criar, listar todos, detalhar, atualizar e deletar processo ([060c04a](https://github.com/heyitsmepablo/siq/commit/060c04afa2aa395bd571caca8227886e4e0947c1))
+
 # [1.0.0-alpha.7](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2025-05-06)
 
 
