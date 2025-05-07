@@ -8,6 +8,7 @@ import { UsersService } from '../users/users.service';
 import { PrismaClientKnownRequestError } from '../../../prisma/generated/client/runtime/library';
 import { JwtService } from '@nestjs/jwt';
 import { LoginDto } from '../../dtos/auth.dto';
+import { UserCreateDto } from 'src/dtos/users.dto';
 
 @Injectable()
 export class AuthService {
@@ -15,6 +16,17 @@ export class AuthService {
     private readonly usersService: UsersService,
     private readonly jwtService: JwtService,
   ) {}
+  async signUp(data: UserCreateDto) {
+    try {
+      await this.usersService.create(data);
+      return { message: 'success' };
+    } catch (error) {
+      if (error instanceof PrismaClientKnownRequestError) {
+        throw new InternalServerErrorException(error);
+      }
+      throw error;
+    }
+  }
   async signIn(data: LoginDto) {
     const { username, password } = data;
     try {
