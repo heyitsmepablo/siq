@@ -1,4 +1,7 @@
-import { InternalServerErrorException } from '@nestjs/common';
+import {
+  InternalServerErrorException,
+  NotFoundException,
+} from '@nestjs/common';
 import { PrismaClientKnownRequestError } from 'prisma/generated/client/runtime/library';
 
 export class PrismaErrorHandler {
@@ -6,16 +9,24 @@ export class PrismaErrorHandler {
 
   handle(): never {
     if (this.error instanceof PrismaClientKnownRequestError) {
-      if (this.error.code == 'P2002') {
-        const meta = this.error.meta as { target?: string[] | undefined };
-        const target = Array.isArray(meta?.target)
-          ? meta.target.join(', ')
-          : 'campo único desconhecido';
+      console.error(this.error);
+      switch (this.error.code) {
+        case 'P2002': {
+          const meta = this.error.meta as { target?: string[] | undefined };
+          const target = Array.isArray(meta?.target)
+            ? meta.target.join(', ')
+            : 'campo único desconhecido';
 
-        throw new InternalServerErrorException({
-          message: `Já existe um registro com o valor informado para o(s) campo(s) único(s)`,
-          fields: target,
-        });
+          throw new InternalServerErrorException({
+            message: `Já existe um registro com o valor informado para o(s) campo(s) único(s)`,
+            fields: target,
+          });
+        }
+        case 'P2025': {
+          throw new NotFoundException({
+            message: `Registro para atualizar não encontrado`,
+          });
+        }
       }
     }
     throw this.error;
