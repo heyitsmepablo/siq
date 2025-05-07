@@ -8,6 +8,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { env } from 'process';
 import { InstitutesService } from './services/institutes/institutes.service';
 import { InstituteController } from './controllers/institute/institute.controller';
+import { AuthController } from './controllers/auth/auth.controller';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { InstituteController } from './controllers/institute/institute.controlle
       signOptions: { expiresIn: env.JWT_EXPIRES_IN },
     }),
   ],
-  controllers: [AppController, InstituteController],
+  controllers: [AppController, InstituteController, AuthController],
   providers: [AppService, AuthService, UsersService, InstitutesService],
 })
 export class AppModule {}
