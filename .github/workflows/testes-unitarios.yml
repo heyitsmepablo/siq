@@ -25,4 +25,4 @@ jobs:
       - name: Run unit tests
         run: npm test
       - name: Generating Badges
-        run: npm run test:bagde
+        run: npm run test:bagdes
