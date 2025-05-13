@@ -96,7 +96,8 @@
       "database/*",
       "main.ts",
       "app.module.ts",
-      "__mock__/*"
+      "__mock__/*",
+      "scripts/*"
     ],
     "testEnvironment": "node",
     "clearMocks": true,
