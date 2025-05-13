@@ -2,6 +2,13 @@
 
 Todas as mudanças notáveis neste projeto serão documentadas neste arquivo. Consulte [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) para diretrizes de commits.
 
+# [1.0.0-alpha.12](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.11...v1.0.0-alpha.12) (2025-05-13)
+
+
+### Features
+
+* **api:** listar todas as subseções ([60bb849](https://github.com/heyitsmepablo/siq/commit/60bb849bed2a94b6f02ea0e85faf205385ac89cc))
+
 # [1.0.0-alpha.11](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.10...v1.0.0-alpha.11) (2025-05-13)
 
 
