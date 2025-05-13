@@ -41,7 +41,7 @@ model institutes {
 
 model processes {
   id        Int        @id @default(autoincrement())
-  name      String
+  name      String     @unique
   type      String
   createdAt DateTime?  @default(now()) @db.Timestamp(6)
   updatedAt DateTime?  @db.Timestamp(6)
@@ -51,21 +51,21 @@ model processes {
 model requirements {
   id                     Int                      @id @default(autoincrement())
   subsection_id          Int?
-  manualRequirement      String?
-  description            String?
-  level                  Int?
-  evidence               String?
+  level_id               Int?
+  description            String?                  @unique
+  guidence               String?
+  suggestion             String?
   createdAt              DateTime?                @default(now()) @db.Timestamp(6)
   updatedAt              DateTime?                @db.Timestamp(6)
   followUps_requirements followUps_requirements[]
+  levels                 levels?                  @relation(fields: [level_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   subsections            subsections?             @relation(fields: [subsection_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model sections {
   id          Int           @id @default(autoincrement())
-  name        String        @unique
+  code        String?       @unique
   process_id  Int?
-  code        String?
   createdAt   DateTime?     @default(now()) @db.Timestamp(6)
   updatedAt   DateTime?     @db.Timestamp(6)
   processes   processes?    @relation(fields: [process_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -75,10 +75,12 @@ model sections {
 model subsections {
   id           Int            @id @default(autoincrement())
   name         String         @unique
+  description  String
   section_id   Int?
-  code         String?
+  code         String?        @unique
   createdAt    DateTime?      @default(now()) @db.Timestamp(6)
   updatedAt    DateTime?      @db.Timestamp(6)
+  levels       levels[]
   requirements requirements[]
   sections     sections?      @relation(fields: [section_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
@@ -92,6 +94,17 @@ model users {
   lastLogin       DateTime? @db.Timestamp(6)
   createdAt       DateTime? @default(now()) @db.Timestamp(6)
   updatedAt       DateTime? @db.Timestamp(6)
+}
+
+model levels {
+  id            Int            @id @default(autoincrement())
+  number        Int
+  description   String?        @unique
+  subsection_id Int?
+  createdAt     DateTime?      @default(now()) @db.Timestamp(6)
+  updatedAt     DateTime?      @db.Timestamp(6)
+  subsections   subsections?   @relation(fields: [subsection_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  requirements  requirements[]
 }
 
 enum requirement_status {
