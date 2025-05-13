@@ -13,7 +13,7 @@
         },
         {
             "name": "stage",
-            "prerelease": "beta",
+            "prerelease": true,
             "channel": "beta"
         }
     ],
