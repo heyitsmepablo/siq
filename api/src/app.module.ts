@@ -11,6 +11,8 @@ import { InstituteController } from './controllers/institute/institute.controlle
 import { AuthController } from './controllers/auth/auth.controller';
 import { ProcessesService } from './services/processes/processes.service';
 import { ProcessController } from './controllers/process/process.controller';
+import { SectionsService } from './services/sections/sections.service';
+import { SubsectionsService } from './services/subsections/subsections.service';
 
 @Module({
   imports: [
@@ -33,6 +35,8 @@ import { ProcessController } from './controllers/process/process.controller';
     UsersService,
     InstitutesService,
     ProcessesService,
+    SectionsService,
+    SubsectionsService,
   ],
 })
 export class AppModule {}
