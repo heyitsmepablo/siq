@@ -13,6 +13,8 @@ import { ProcessesService } from './services/processes/processes.service';
 import { ProcessController } from './controllers/process/process.controller';
 import { SectionsService } from './services/sections/sections.service';
 import { SubsectionsService } from './services/subsections/subsections.service';
+import { SubsectionsController } from './controllers/subsections/subsections.controller';
+import { SectionsController } from './controllers/sections/sections.controller';
 
 @Module({
   imports: [
@@ -28,6 +30,8 @@ import { SubsectionsService } from './services/subsections/subsections.service';
     InstituteController,
     AuthController,
     ProcessController,
+    SubsectionsController,
+    SectionsController,
   ],
   providers: [
     AppService,
