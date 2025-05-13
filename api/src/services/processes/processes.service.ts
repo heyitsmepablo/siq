@@ -24,7 +24,10 @@ export class ProcessesService implements DatabaseServiceInterface {
   }
   async findOne(id: number) {
     try {
-      return await this.#db.processes.findUnique({ where: { id } });
+      return await this.#db.processes.findUnique({
+        where: { id },
+        include: { sections: true },
+      });
     } catch (error) {
       new PrismaErrorHandler(error).handle();
     }
