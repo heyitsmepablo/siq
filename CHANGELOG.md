@@ -2,6 +2,18 @@
 
 Todas as mudanças notáveis neste projeto serão documentadas neste arquivo. Consulte [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) para diretrizes de commits.
 
+# [1.0.0-alpha.10](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2025-05-13)
+
+
+### Bug Fixes
+
+* **database:** removação de unicidades de algumas colunas ([3ab2021](https://github.com/heyitsmepablo/siq/commit/3ab2021d8fc5b2ccd7a9ed6de0ebcb965678dd16))
+
+
+### Features
+
+* **api:** script de parse e load da ona pro banco de dados ([29029ac](https://github.com/heyitsmepablo/siq/commit/29029ac0fcf7366c6b8d41a29720c0689cbeee70))
+
 # [1.0.0-alpha.9](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.8...v1.0.0-alpha.9) (2025-05-07)
 
 
