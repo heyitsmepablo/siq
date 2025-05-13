@@ -2,6 +2,13 @@
 
 Todas as mudanças notáveis neste projeto serão documentadas neste arquivo. Consulte [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) para diretrizes de commits.
 
+# [1.0.0-alpha.11](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.10...v1.0.0-alpha.11) (2025-05-13)
+
+
+### Features
+
+* **api:** puxar um processo agora retorna com suas sections no payload ([a12f65f](https://github.com/heyitsmepablo/siq/commit/a12f65fb3cd4dba77eeacbd89267393958ffcaca))
+
 # [1.0.0-alpha.10](https://github.com/heyitsmepablo/siq/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2025-05-13)
 
 
