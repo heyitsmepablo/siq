@@ -15,9 +15,9 @@ export class SectionsService implements DatabaseServiceInterface {
       new PrismaErrorHandler(error).handle();
     }
   }
-  async findAll() {
+  async findAll(where?: { process_id: number }) {
     try {
-      return await this.#db.sections.findMany();
+      return await this.#db.sections.findMany({ where });
     } catch (error) {
       new PrismaErrorHandler(error).handle();
     }

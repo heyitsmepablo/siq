@@ -3,6 +3,10 @@ import { ProcessController } from './process.controller';
 import { Prisma } from 'prisma/generated/client';
 import { ProcessesService } from 'src/services/processes/processes.service';
 import { processesServiceMock } from 'src/__mock__/services/processes.service';
+import { SubsectionsService } from 'src/services/subsections/subsections.service';
+import { subsectionsServiceMock } from 'src/__mock__/services/subsections.service';
+import { SectionsService } from 'src/services/sections/sections.service';
+import { sectionsServiceMock } from 'src/__mock__/services/sections.service';
 
 describe('ProcessController', () => {
   let controller: ProcessController;
@@ -12,6 +16,8 @@ describe('ProcessController', () => {
       controllers: [ProcessController],
       providers: [
         { provide: ProcessesService, useValue: processesServiceMock },
+        { provide: SubsectionsService, useValue: subsectionsServiceMock },
+        { provide: SectionsService, useValue: sectionsServiceMock },
       ],
     }).compile();
 
@@ -91,6 +97,28 @@ describe('ProcessController', () => {
       const expectedResponse = { message: 'success' };
       processesServiceMock.delete.mockResolvedValue(expectedResponse);
       await expect(controller.delete(1)).resolves.toEqual(expectedResponse);
+    });
+    it('Deve rejeitar jogando o erro', async () => {
+      const expectResponse = new Error('erro generico');
+      processesServiceMock.delete.mockRejectedValue(expectResponse);
+      await expect(controller.delete(1)).rejects.toEqual(expectResponse);
+    });
+  });
+  describe('findSubsections', () => {
+    it('Deve resolver com o resultado no payload', async () => {
+      const expectedResponse: Prisma.subsectionsGetPayload<true> = {
+        code: '1',
+        id: 1,
+        createdAt: null,
+        updatedAt: null,
+        section_id: 1,
+        description: 'x',
+        name: 'x',
+      };
+      subsectionsServiceMock.findAll.mockResolvedValue([expectedResponse]);
+      await expect(controller.findSubsections(1, 1)).resolves.toEqual([
+        expectedResponse,
+      ]);
     });
     it('Deve rejeitar jogando o erro', async () => {
       const expectResponse = new Error('erro generico');
