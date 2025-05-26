@@ -22,9 +22,9 @@ export class SectionsService implements DatabaseServiceInterface {
       new PrismaErrorHandler(error).handle();
     }
   }
-  async findOne(id: number) {
+  async findOne(where: { id: number; process_id: number }) {
     try {
-      return await this.#db.sections.findUnique({ where: { id } });
+      return await this.#db.sections.findUnique({ where });
     } catch (error) {
       new PrismaErrorHandler(error).handle();
     }
