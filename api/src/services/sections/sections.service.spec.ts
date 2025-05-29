@@ -54,15 +54,16 @@ describe('SectionsService', () => {
   });
 
   describe('findOne', () => {
+    const payload = { id: 1, process_id: 1 };
     it('Deve resolver com payload no corpo', async () => {
       const expectedResponse = prismaPayload;
       prismaMock.sections.findUnique.mockResolvedValue(prismaPayload);
-      await expect(service.findOne(1)).resolves.toEqual(expectedResponse);
+      await expect(service.findOne(payload)).resolves.toEqual(expectedResponse);
     });
     it('Deve rejeitar jogando o erro na resposta', async () => {
       const expectedResponse = new Error('Erro generico');
       prismaMock.sections.findUnique.mockRejectedValue(expectedResponse);
-      await expect(service.findOne(1)).rejects.toEqual(expectedResponse);
+      await expect(service.findOne(payload)).rejects.toEqual(expectedResponse);
     });
   });
 
